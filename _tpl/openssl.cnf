@@ -1,0 +1,107 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir = TPL_PATH
+certs = $dir/certs
+crl_dir = $dir/crl
+database = $dir/index.txt
+new_certs_dir = $dir/certs
+certificate = $dir/certs/TPL_CANAME
+serial = $dir/serial
+crlnumber = $dir/crlnumber
+crl = $dir/crl/TPL_CRLNAME
+private_key = $dir/private/TPL_CAKEYNAME
+#RANDFILE = $dir/private/.rand
+#x509_extensions = usr_cert
+#crl_extensions = crl_ext
+default_days = 3650
+#default_startdate = YYMMDDHHMMSSZ
+#default_enddate = YYMMDDHHMMSSZ
+default_crl_days= 30
+#default_crl_hours = 24
+default_md = sha1
+preserve = no
+#msie_hack
+policy = policy_match
+
+[ policy_match ]
+countryName = match
+stateOrProvinceName = match
+localityName = match
+organizationName = match
+organizationalUnitName = optional
+commonName = supplied
+emailAddress = optional
+
+[ req ]
+default_bits = 4096 # Size of keys
+default_keyfile = key.pem # name of generated keys
+distinguished_name = req_distinguished_name
+attributes = req_attributes
+x509_extensions = v3_ca
+#input_password
+#output_password
+string_mask = nombstr # permitted characters
+req_extensions = v3_req
+
+[ req_distinguished_name ]
+countryName = Country Name (2 letter code)
+countryName_default = FR
+countryName_min = 2
+countryName_max = 2
+stateOrProvinceName = State or Province Name (full name)
+stateOrProvinceName_default = PARIS
+localityName = Locality Name (city, district)
+localityName_default = Paris
+organizationName = Organization Name (company)
+organizationName_default = OPP
+organizationalUnitName = Organizational Unit Name (department, division)
+organizationalUnitName_default = IT
+commonName = Common Name (hostname, FQDN, IP, or your name)
+commonName_max = 64
+commonName_default = cert
+emailAddress = Email Address
+emailAddress_max = 40
+emailAddress_default = admin@example.com
+
+[ req_attributes ]
+#challengePassword = A challenege password
+#challengePassword_min = 4
+#challengePassword_max = 20
+#unstructuredName = An optional company name
+
+[ usr_cert ]
+basicConstraints= CA:FALSE
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer:always
+#nsComment = ''OpenSSL Generated Certificate''
+#nsCertType = client, email, objsign for ''everything including object signing''
+subjectAltName=email:copy
+issuerAltName=issuer:copy
+#nsCaRevocationUrl = http://www.domain.dom/ca-crl.pem
+#nsBaseUrl = 
+#nsRenewalUrl =
+#nsCaPolicyUrl = 
+#nsSslServerName =
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+#keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment, keyAgreement, keyCertSign, cRLSign
+subjectAltName=email:copy
+
+[ v3_ca ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer:always
+basicConstraints = CA:TRUE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment, keyAgreement, keyCertSign, cRLSign
+#nsCertType = sslCA, emailCA
+subjectAltName=email:copy
+issuerAltName=issuer:copy
+#obj=DER:02:03
+
+[ crl_ext ]
+#issuerAltName=issuer:copy
+authorityKeyIdentifier=keyid:always,issuer:always
+
