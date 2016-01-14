@@ -1,12 +1,12 @@
-CA certificat generator en bash
+#CA certificat generator en bash
 
-0================================ 
+#0================================ 
 
 contenu de l'archive :
 - CA/createCAFolder.sh (bash file)
 - CA/_tpl (folder)
   
-1================================  
+#1================================  
 
 chmod +x createCAFolder.sh
 
@@ -28,11 +28,11 @@ avec l'arborescence
 * -rw-r--r-- 1 root root 3038 janv. 28 10:57 openssl.cnf		<= fichier de conf openssl
 * drwxr-xr-x 2 root root 4096 janv. 28 10:57 p12
 * drwxr-xr-x 2 root root 4096 janv. 28 10:57 private    		<= private key
-*-rwxr-xr-x 1 root root 1030 janv. 28 10:57 revokCrt.sh		<= revoquer un certificat
+* -rwxr-xr-x 1 root root 1030 janv. 28 10:57 revokCrt.sh		<= revoquer un certificat
 * -rwxr-xr-x 1 root root  544 janv. 28 10:57 rmCert.sh		<= script supprimer un cert
 * -rw-r--r-- 1 root root    3 janv. 28 10:57 serial
 
-2=======================================
+#2=======================================
 
 scripts
 
