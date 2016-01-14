@@ -1,12 +1,12 @@
 #CA certificat generator en bash
 
-#0================================ 
+##0================================ 
 
 contenu de l'archive :
 - CA/createCAFolder.sh (bash file)
 - CA/_tpl (folder)
   
-#1================================  
+##1================================  
 
 chmod +x createCAFolder.sh
 
@@ -32,7 +32,7 @@ avec l'arborescence
 * -rwxr-xr-x 1 root root  544 janv. 28 10:57 rmCert.sh		<= script supprimer un cert
 * -rw-r--r-- 1 root root    3 janv. 28 10:57 serial
 
-#2=======================================
+##2=======================================
 
 scripts
 
